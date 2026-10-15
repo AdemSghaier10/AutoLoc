@@ -23,8 +23,14 @@ public class Maintenance {
     @Column(nullable = false)
     private LocalDate dateDebut;
 
+    @Column(nullable = false)
     private LocalDate dateFin;
 
-    @Column(length = 500)
+    @Column(nullable = false, length = 500)
     private String description;
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_vehicule", nullable = false)
+    private Vehicule vehicule;
 }
